@@ -60,10 +60,10 @@ function Navbar() {
 
 
   return (
-    <div ref={nav} className='sticky top-0 z-10 w-screen flex justify-center'>
+    <div ref={nav} className='sticky top-0 z-10 max-w-screen flex justify-center'>
  <div  className='flex justify-between  items-center w-[90vw]  '>
       <div ref={logsv}>
-        <Logo className=" h-15 w-15" />
+        <Logo className=" h-15 w-15 " />
       </div>
       <ul className=' font-inter flex gap-20'>
         <li>Products</li>

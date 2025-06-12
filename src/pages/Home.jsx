@@ -10,14 +10,14 @@ import Drop from '../assets/svg/droplet.svg?react'
 
 function Home() {
     return (
-        <div className=' bg-gray-200 h-[400vh]'>
+        <div className=' bg-gray-200 h-[400vh] max-w-sceen '>
             < Navbar />
-            <div className=' h-[120vh] max-w-screen  bg-gray-300 bg-gradient-to-b from-gray-200 to-gray-500'>
+            <div className=' h-screen max-w-screen  bg-gray-300 bg-gradient-to-b from-gray-200 to-gray-500'>
 
-                <div className='h-132 relative '>
-                    <img src={showcase} alt="elura" className='w-screen h-160 ' />
+                <div className='h-screen relative  '>
+                    <img src={showcase} alt="elura" className='w-screen h-screen ' />
 
-                    <div className=' font-serifpro  h-50  w-110 text-6xl font-medium absolute inset-0 inset-x-28 inset-y-50 flex flex-col gap-4 '>
+                    <div className=' font-serifpro  h-50  w-150 text-7xl font-medium absolute inset-0 inset-x-28 inset-y-50 flex flex-col gap-4 '>
                         <p >Glow Up </p>
                         <p>Your Daily Ritual</p>
                         <button className='bg-white text-black p-2  rounded-full font-inter font-medium text-sm w-25 mt-1.5'>Shop now</button>
@@ -25,12 +25,12 @@ function Home() {
                 </div>
             </div>
 
-            <div className=' w-screen flex justify-center mt-24 mb-24'>
+            <div className=' max-w-screen flex justify-center mt-24 mb-24'>
                 <p className='flex justify-center items-center p-10 border-t-2 border-b-2 w-[95vw] font-playboy text-4xl italic font-semibold '>Your skin  Your ritual  Your time</p>
             </div>
 
-            <div className='bg-gray-300 w-screen h-[110vh]'>
-                <div className=' w-screen flex items-center justify-center font-serifpro italic font-semibold text-4xl  py-4'>
+            <div className='max-w-screen h-screen bg-gradient-to-tl from-white to-gray-400  '>
+                <div className=' max-w-screen flex items-center justify-center font-serifpro italic font-semibold text-5xl  py-4'>
                     <div className=' flex border-b-2 gap-2.5'>
                         <p className=''>Ellaura</p>
                         <p className='text-orange-600'> Mist</p>
@@ -38,11 +38,11 @@ function Home() {
 
                 </div>
 
-                <div className=' flex pt-10'>
-                    <div className='w-1/2 flex justify-center'>
+                <div className=' flex pt-15 items-center'>
+                    <div className='w-1/2 flex justify-center scale-130'>
                         <div className='w-60 h-96 relative flex items-end justify-end'>
-                            <img className='h-66' src={girl1} alt="girl1" />
-                            <img className=' h-46 absolute top-8 -left-1.5' src={girl2} alt="girl2" />
+                            <img className='h-76' src={girl1} alt="girl1" />
+                            <img className=' h-56 absolute top-8 -left-12.5' src={girl2} alt="girl2" />
                         </div>
                     </div>
 
@@ -92,6 +92,8 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            
         </div>
     )
 }
