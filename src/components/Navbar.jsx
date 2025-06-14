@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Logo from '../assets/svg/elura.svg?react';
@@ -12,8 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 function Navbar() {
   const logsv = useRef(null);
   const nav = useRef(null)
-  useEffect(() => {
+useLayoutEffect(() => {
+  const ctx = gsap.context(()=>{
+    
 
+    
     gsap.set(logsv.current,
       {
         x:93,
@@ -22,6 +25,9 @@ function Navbar() {
 
       }
     )
+
+
+   
     gsap.to(logsv.current,
       {
 
@@ -51,8 +57,10 @@ function Navbar() {
         scrub: 0.5
       }
     })
+  })
 
-  }, [])
+  return ()=> ctx.revert()
+}, [])
 
 
 
@@ -60,7 +68,7 @@ function Navbar() {
 
 
   return (
-    <div ref={nav} className='sticky top-0 z-10 max-w-screen flex justify-center'>
+    <div ref={nav} className=' max-w-screen flex justify-center sticky top-0 z-10'>
  <div  className='flex justify-between  items-center w-[90vw]  '>
       <div ref={logsv}>
         <Logo className=" h-15 w-15 " />

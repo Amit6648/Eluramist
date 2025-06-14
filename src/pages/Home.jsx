@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import Navbar from '../components/navbar'
 import showcase from '../assets/images/elurahome.png'
 import girl1 from '../assets/images/girl1.jpg'
@@ -7,17 +7,53 @@ import girl2 from '../assets/images/girl2.jpg'
 import Star from '../assets/svg/star.svg?react'
 import Sun from '../assets/svg/sun.svg?react'
 import Drop from '../assets/svg/droplet.svg?react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import Product from '../components/product'
+import sunscream from '../assets/images/sunscreamfro.jpeg'
+import retoniod from '../assets/images/retenoid.jpeg'
+import aqua from '../assets/images/aqua.jpeg'
+import acid from '../assets/images/acid.jpeg'
+
 
 function Home() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const maintext = useRef(null)
+
+    useLayoutEffect(()=>{
+        const ctx = gsap.context(()=>{
+            gsap.fromTo(maintext.current, 
+                {
+                    y : 30,
+                  opacity : 0,
+                  ease : "power1.in"
+                },
+
+                {
+                    y:0,
+                    opacity:1,
+                    ease :"power1.in"
+                }
+            )
+        })
+
+        return ()=> ctx.revert()
+    })
+
+
     return (
-        <div className=' bg-gray-200 h-[400vh] max-w-sceen '>
+        <div className=' bg-gray-200 h-[400vh] max-w-srceen '>
+
             < Navbar />
+
+
             <div className=' h-screen max-w-screen  bg-gray-300 bg-gradient-to-b from-gray-200 to-gray-500'>
 
                 <div className='h-screen relative  '>
                     <img src={showcase} alt="elura" className='w-screen h-screen ' />
 
-                    <div className=' font-serifpro  h-50  w-150 text-7xl font-medium absolute inset-0 inset-x-28 inset-y-50 flex flex-col gap-4 '>
+                    <div ref={maintext} className=' font-serifpro  h-50  w-150 text-7xl font-medium absolute inset-0 inset-x-28 inset-y-50 flex flex-col gap-4 '>
                         <p >Glow Up </p>
                         <p>Your Daily Ritual</p>
                         <button className='bg-white text-black p-2  rounded-full font-inter font-medium text-sm w-25 mt-1.5'>Shop now</button>
@@ -53,7 +89,7 @@ function Home() {
                                     <Star />
                                 </div>
 
-                                <div className='flex gap-1.5 flex-col border-b-2 pb-3'>
+                                <div className='flex gap-1.5 flex-col border-b pb-3'>
 
                                     <p className='text-xl'>Cleansers</p>
                                     <p className='text-gray-800'>Gently exfoliate and brighten with Glycolic Acid, while Salicylic Acid + LHA clears pores and fights breakouts fresh, balanced skin every time</p>
@@ -66,7 +102,7 @@ function Home() {
                                     <Drop />
                                 </div>
 
-                                <div className='flex gap-1.5 flex-col border-b-2 pb-3'>
+                                <div className='flex gap-1.5 flex-col border-b pb-3'>
 
                                     <p className='text-xl'>Moisturizers</p>
                                     <p className='text-gray-800'>Hydrate deeply and restore elasticity with our nourishing creams and gels packed with retinoids, hyaluronic acid, and brightening boosters for radiant, smooth skin</p>
@@ -79,7 +115,7 @@ function Home() {
                                     <Sun />
                                 </div>
 
-                                <div className='flex gap-1.5 flex-col border-b-2 pb-3'>
+                                <div className='flex gap-1.5 flex-col border-b pb-3'>
 
                                     <p className='text-xl'>Sun protection</p>
                                     <p className='text-gray-800'>Shield your skin with broad-spectrum SPF 50 formulas that hydrate and protect perfect for keeping your glow safe from harmful rays all day long</p>
@@ -93,7 +129,23 @@ function Home() {
                 </div>
             </div>
 
-            
+            <div className='max-w-screen text-6xl flex items-end justify-center font-inter font-light border-b mt-20 text-gray-800'>
+                OUR PRODUCTS
+            </div>
+            <div>
+                <div className=' h-[70vh] flex items-center font-inter justify-between p-12'>
+                    <Product price={"500"} description={"Sunscreen SPF 50 with Hydrating Formula"} image={sunscream} />
+                    <Product price={"449"} description={"Granactive Retinoid Cream"} image={retoniod} />
+                    <Product price={"449"} description={"Hyaluronic Aqua Ge"} image={aqua} />
+                    <Product price={"339"} description={"Glycolic Acid Face Wash"} image={acid} />
+                </div>
+
+                <div className='flex items-center justify-center'>
+                    <button className=' bg-white border-2 border-dotted w-80 p-5'>More Products</button>
+                </div>
+            </div>
+
+
         </div>
     )
 }
