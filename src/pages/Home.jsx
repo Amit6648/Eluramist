@@ -14,6 +14,7 @@ import sunscream from '../assets/images/sunscreamfro.jpeg'
 import retoniod from '../assets/images/retenoid.jpeg'
 import aqua from '../assets/images/aqua.jpeg'
 import acid from '../assets/images/acid.jpeg'
+import Questions from '../components/Questions'
 
 
 function Home() {
@@ -210,6 +211,9 @@ return (
             </div>
 
         </div>
+
+
+        <Questions/>
 
 
          
