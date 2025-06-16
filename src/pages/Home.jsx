@@ -15,6 +15,8 @@ import retoniod from '../assets/images/retenoid.jpeg'
 import aqua from '../assets/images/aqua.jpeg'
 import acid from '../assets/images/acid.jpeg'
 import Questions from '../components/Questions'
+import Location from '../components/Location'
+import Fotter from '../components/Fotter'
 
 
 function Home() {
@@ -72,7 +74,7 @@ function Home() {
         ScrollTrigger.create({
             trigger: pinnedarea.current,
             start: "top top",
-            end: "+=300%",
+            end: "+=200%",
             pin: true
         });
 
@@ -98,13 +100,13 @@ function Home() {
 
     });
 
-    return () => ctx.revert(); // ✅ clean up
+    return () => ctx.revert(); 
 }, []);
 
 
 
 return (
-    <div className=' bg-gray-200 h-[800vh] max-w-srceen '>
+    <div className=' bg-gray-200 h-[1400vh] max-w-srceen '>
 
         < Navbar />
 
@@ -214,11 +216,10 @@ return (
 
 
         <Questions/>
-
-
-         
-
-
+      
+      <Location/>
+  
+ <Fotter/>
     </div>
 )
 }
