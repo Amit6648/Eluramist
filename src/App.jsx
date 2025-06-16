@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
 import Home from './pages/Home'
+import Products from './pages/Products';
 import Lenis from 'lenis'
 import gsap from 'gsap';
 import 'lenis/dist/lenis.css'
 import ScrollTrigger from 'gsap/ScrollTrigger';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -32,7 +33,12 @@ gsap.ticker.lagSmoothing(0);
 }, [])
   return (
     <>
-<Home/>
+<Router>
+  <Routes>
+   <Route path='/' element={<Home/>}/>
+   <Route path='/products' element={<Products/>}/>
+  </Routes>
+</Router>
     </>
   )
 }

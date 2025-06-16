@@ -18,7 +18,6 @@ import Questions from '../components/Questions'
 import Location from '../components/Location'
 import Fotter from '../components/Fotter'
 
-
 function Home() {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -30,7 +29,6 @@ function Home() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
 
-        // Hero text animation
         gsap.fromTo(maintext.current,
             {
                 y: 30,
@@ -44,7 +42,6 @@ function Home() {
             }
         );
 
-        // Product text timeline
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: protext.current,
@@ -70,7 +67,7 @@ function Home() {
             opacity : 0,
             ease : "power1.out"
         })
-        // Pin the product area
+
         ScrollTrigger.create({
             trigger: pinnedarea.current,
             start: "top top",
@@ -78,7 +75,7 @@ function Home() {
             pin: true
         });
 
-        // Products appear animation
+
         const tl1 = gsap.timeline({
             scrollTrigger: {
                 trigger: products.current,
@@ -106,7 +103,7 @@ function Home() {
 
 
 return (
-    <div className=' bg-gray-200 h-[1400vh] max-w-srceen '>
+    <div className=' bg-gray-200  max-w-srceen '>
 
         < Navbar />
 

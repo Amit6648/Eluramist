@@ -7,11 +7,11 @@ import Facebook from '../assets/svg/facebook.svg?react'
 import Instagram from '../assets/svg/instagram.svg?react'
 function Fotter() {
   return (
-    <div className=' font-inter p-10 bg-white absolute'>
+    <div className=' font-inter p-10 bg-white'>
         <div className=' max-w-screen flex justify-around '>
 
             <div className='h-full flex flex-col justify-center'>
-          <Logo className=" h-40 w-30"/>
+          <Logo className=" h-60 w-40 "/>
             </div>
             <div className=' text-lg flex flex-col gap-2.5' >
                 <p className='text-2xl py-2.5'>Quick links</p>

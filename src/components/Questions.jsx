@@ -16,7 +16,6 @@ function Questions() {
                     <p className='font-inter '>Frequently Asked</p>
                     <p className='font-serifpro italic'>Questions</p>
                 </div>
-                
                 <ul className='font-inter text-xl flex flex-col gap-5 text-gray-700'>
                     <li className='border-b border-gray-500 h-14 flex justify-between'>
                         <p>How do i place a order</p>
