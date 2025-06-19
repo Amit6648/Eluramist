@@ -71,7 +71,7 @@ useLayoutEffect(() => {
 
  
 
-    else
+    if(location.pathname === "/contact")
     {
       gsap.to(nav.current, {
       backgroundColor: "#ffffff",
@@ -85,6 +85,12 @@ useLayoutEffect(() => {
       
       }
     })
+    }
+
+    if (location.pathname === "/checkout") {
+      gsap.set(nav.current, {
+        background : "#ffffff"
+      })
     }
     
   })

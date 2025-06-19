@@ -7,6 +7,10 @@ import backtext from '../assets/images/backtext.png'
 import sun from '../assets/images/sun.png'
 import koji from '../assets/images/koji.png'
 import robo from '../assets/images/robo.png'
+import Questions from '../components/Questions'
+import Location from '../components/Location'
+import Fotter from '../components/Fotter'
+
 
 function Contact() {
   const hero = useRef(null)
@@ -97,7 +101,7 @@ function Contact() {
     return () => ctx.revert();
   })
   return (
-    <div className='bg-gray-200 h-[300vh]'>
+    <div className='bg-gray-200'>
       <Navbar />
       
       <div className='h-screen max-w-screen relative  bg-gradient-to-b from-gray-200 to-gray-500 overflow-hidden ' ref={pinarea}>
@@ -118,6 +122,9 @@ function Contact() {
           <p className='bg-white/10 backdrop-blur-lg shadow rounded-lg w-66 h-52'></p>
         </div>
       </div>
+
+<Location/>
+<Fotter/>
     </div>
   )
 }
