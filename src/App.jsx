@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Home from './pages/Home'
 import Products from './pages/Products';
+import Contact from './pages/Contact';
 import Lenis from 'lenis'
 import gsap from 'gsap';
 import 'lenis/dist/lenis.css'
@@ -37,6 +38,7 @@ gsap.ticker.lagSmoothing(0);
   <Routes>
    <Route path='/' element={<Home/>}/>
    <Route path='/products' element={<Products/>}/>
+   <Route path='/contact' element ={<Contact/>}/>
   </Routes>
 </Router>
     </>

@@ -18,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Navbar() {
   const logsv = useRef(null);
   const nav = useRef(null)
+  const contact = useRef(null)
   
  const location = useLocation();
 useLayoutEffect(() => {
@@ -68,6 +69,8 @@ useLayoutEffect(() => {
     
     }
 
+ 
+
     else
     {
       gsap.to(nav.current, {
@@ -75,9 +78,11 @@ useLayoutEffect(() => {
       ease: "none",
 
       scrollTrigger: {
-       
-        end: "15%",
-        scrub: 0.5
+        trigger : nav.current,
+       start : "top+=1000 top ",
+        end: "+=200%",
+        scrub: 0.5,
+      
       }
     })
     }
@@ -98,12 +103,9 @@ useLayoutEffect(() => {
       <Link ref={logsv} to="/">
        <Logo className=" h-15 w-15 " />
       </Link>
-
-       
-      
       <ul className=' font-inter flex gap-20'>
-       <Link to="/products"> Products</Link>
-       <Link to="/contact">Contact</Link>
+       <Link  to="/products"> Products</Link>
+       <Link ref={contact} to="/contact">Contact</Link>
        <Link to="about"> About</Link>
       </ul>
       <Cart className="h-[25px] w-[25px]" />

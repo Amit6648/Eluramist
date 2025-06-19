@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useRef, useEffect, useLayoutEffect } from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
 import showcase from '../assets/images/elurahome.png'
 import girl1 from '../assets/images/girl1.jpg'
 import girl2 from '../assets/images/girl2.jpg'
