@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import elupro from '../assets/images/elurahomepro.png';
 import Product from '../components/product';
 import sunscream from '../assets/images/sunscreamfro.jpeg'
@@ -35,7 +35,7 @@ function Products() {
             <div className='max-w-screen flex justify-center'>
 
 
-                <div className=' grid grid-cols-6  font-inter gap-3.5 w-[70vw] py-20 '>
+                <div className=' grid grid-cols-6  font-inter gap-3.5 py-20 '>
                     <Product price={"500"} description={"Sunscreen SPF 50 with Hydrating Formula"} image={sunscream} />
                     <Product price={"449"} description={"Granactive Retinoid Cream"} image={retoniod} />
                     <Product price={"449"} description={"Hyaluronic Aqua Ge"} image={aqua} />
