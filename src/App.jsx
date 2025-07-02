@@ -8,6 +8,7 @@ import 'lenis/dist/lenis.css'
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Checkout from './pages/checkout';
+import About from './pages/About'
 
 
 function App() {
@@ -41,6 +42,7 @@ gsap.ticker.lagSmoothing(0);
    <Route path='/products' element={<Products/>}/>
    <Route path='/contact' element ={<Contact/>}/>
    <Route path='/checkout' element = {<Checkout/>}/>
+   <Route path='/about' element = {<About/>}/>
   </Routes>
 </Router>
     </>

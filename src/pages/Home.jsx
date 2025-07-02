@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { motion, rgba, scale } from "motion/react"
 import Navbar from '../components/Navbar'
 import showcase from '../assets/images/elurahome.png'
 import girl1 from '../assets/images/girl1.jpg'
@@ -30,71 +31,60 @@ function Home() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
    const mm = gsap.matchMedia();
-        // gsap.fromTo(maintext.current,
-        //     {
-        //         y: 30,
-        //         opacity: 0,
-        //         ease: "power1.in"
-        //     },
-        //     {
-        //         y: 0,
-        //         opacity: 1,
-        //         ease: "power1.in"
-        //     }
-        // );
 
-        // const tl = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: protext.current,
-        //         start: "top center",
-        //         end: "+=60%",
-        //         scrub: true
-        //     }
-        // });
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: protext.current,
+                start: "top center",
+                end: "+=60%",
+                scrub: true
+            }
+        });
 
-        // tl.fromTo(protext.current, {
-        //     y: "50%",
-        //     opacity: 0,
-        //     ease: "power1.in"
-        // }, {
-        //     y: "0%",
-        //     opacity: 1,
-        //     ease: "power1.out"
-        // });
+        tl.fromTo(protext.current, {
+            y: "50%",
+            opacity: 0,
+            ease: "power1.in"
+        }, {
+            y: "0%",
+            opacity: 1,
+            ease: "power1.out",
+            duration : 0.5
+        });
 
 
-        // tl.to(protext.current,{
-        //     y:"-50%",
-        //     opacity : 0,
-        //     ease : "power1.out"
-        // })
+        tl.to(protext.current,{
+            y:"-50%",
+            opacity : 0,
+            ease : "power1.out"
+        })
 
-        // ScrollTrigger.create({
-        //     trigger: pinnedarea.current,
-        //     start: "top top",
-        //     end: "+=200%",
-        //     pin: true
-        // });
+        ScrollTrigger.create({
+            trigger: pinnedarea.current,
+            start: "top top",
+            end: "+=200%",
+            pin: true
+        });
 
 
-        // const tl1 = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: products.current,
-        //         start: "top top",
-        //         end: "+=100%",
-        //         scrub: 1
-        //     }
-        // });
+        const tl1 = gsap.timeline({
+            scrollTrigger: {
+                trigger: products.current,
+                start: "top top",
+                end: "+=100%",
+                scrub: 1
+            }
+        });
 
-        // tl1.fromTo(products.current, {
-        //     y: "80%",
-        //     opacity: 0,
-        //     ease: "power1.in"
-        // }, {
-        //     y: "0%",
-        //     opacity: 1,
-        //     ease: "power1.out"
-        // });
+        tl1.fromTo(products.current, {
+            y: "80%",
+            opacity: 0,
+            ease: "power1.in"
+        }, {
+            y: "0%",
+            opacity: 1,
+            ease: "power1.out"
+        });
 
     });
 
@@ -117,21 +107,54 @@ return (
                 <img src={productsm} alt=""  className=' absolute object-cover object-center h-[80vh] md:hidden opacity-70'/>
           
 
-                <div ref={maintext} className=' text-4xl font-serifpro h-50 font-medium flex flex-col items-center gap-4 absolute top-50
+                <motion.div initial = {{
+                   y:40,
+                   opacity : 0
+                }} 
+                animate = {
+                    {
+                        y:0,
+                        opacity:1,
+                    }
+                }
+
+                transition={
+                    {
+                        ease : "easeInOut",
+                        duration : 0.5
+                    }
+                }
+                className=' text-4xl font-serifpro h-50 font-medium flex flex-col items-center gap-4 absolute top-50
 
                 md:w-150 md:text-5xl lg:text-7xl  md:transform-none md:-translate-x-0 md:-translate-y-0 lg:top-[300px] lg:left-[120px] md:top-[250px] md:left-[100px] md:items-start
                   
                   '>
                     <p >Glow Up </p>
                     <p>Your Daily Ritual</p>
-                    <button className='bg-white text-black p-2  rounded-full font-inter font-medium text-sm w-25 mt-1.5'>Shop now</button>
-                </div>
+                    <motion.button
+                    whileHover={{
+                        color : "rgba(255,255,255)",
+                        backgroundColor : "rgba(0,0,0)"
+
+                    }}
+
+                    transition={{
+                        ease : "easeInOut",
+                        duration : 0.2
+                    }}
+                    className='bg-white text-black p-2  rounded-full font-inter font-medium text-sm w-25 mt-1.5'>Shop now</motion.button>
+                </motion.div>
             </div>
         </div>
 
-        <div className=' max-w-screen flex justify-center mt-24 mb-24'>
+        <motion.div
+       initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.3 }}
+        className=' max-w-screen flex justify-center mt-24 mb-24'>
             <p className='flex justify-center items-center p-5 lg:p-10 border-t-2 border-b-2 w-[95vw] font-playboy text-xl md:text-4xl  italic font-semibold '>Your skin  Your ritual  Your time</p>
-        </div>
+        </motion.div>
 
         <div className='max-w-screen  bg-gradient-to-tl from-white to-gray-400  '>
             <div className=' max-w-screen flex items-center justify-center font-serifpro italic font-semibold text-5xl'>
@@ -200,10 +223,10 @@ return (
         <div ref={pinnedarea} className=' relative '>
 
 
-            {/* <div ref={protext} className='text-4xl md:text-8xl flex items-end justify-center font-inter  mt-20 text-gray-800 gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <div ref={protext} className='text-4xl md:text-8xl flex items-end justify-center font-inter  mt-20 text-gray-800 gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                 <p>OUR</p>
                 <p>PRODUCTS</p>
-            </div> */}
+            </div>
             <div ref={products} className='mt-20 '>
                
                   <div className='p-5'>
