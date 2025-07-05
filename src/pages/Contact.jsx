@@ -31,7 +31,78 @@ function Contact() {
 
     const ctx = gsap.context(() => {
 
-      mm.add("(max-width:778px)", () => {
+      mm.add("(min-width:778px) and (max-width:1023px)", ()=>{
+          gsap.fromTo(hero.current, {
+        opacity: 0
+      },
+        {
+          y: -20,
+          opacity: 1,
+          ease: "power1.inOut"
+        })
+
+      ScrollTrigger.create({
+        trigger: pinarea.current,
+        start: "top-=10% top",
+        end: "+=150%",
+        pin: true
+      })
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero.current,
+          start: "top top+=50%",
+          end: "+=100%",
+          scrub: 0.5
+        }
+
+      })
+
+      tl.to(hero.current,
+        {
+          y: -260,
+          ease: "power1.inOut",
+
+        }
+      )
+
+      tl.fromTo(boxes.current,
+        {
+          opacity: 0
+        },
+
+        {
+          y: -350,
+          opacity: 1,
+          ease: "power1.inOut"
+        }
+      )
+
+      tl.to(brown.current, {
+        x: 60,
+        ease: "power1.inOut",
+
+        duration: 2
+      },)
+
+
+      tl.to(orange.current, {
+        y: 60,
+        ease: "power1.inOut",
+
+        duration: 2
+      }, "<")
+
+
+      tl.to(blue.current, {
+        x: -60,
+        ease: "power1.inOut",
+
+        duration: 2
+      }, "<")
+   
+      })
+
+      mm.add("(max-width:777px)", () => {
         gsap.fromTo(hero.current, {
           opacity: 0
         },
@@ -103,7 +174,7 @@ function Contact() {
       })
 
 
-      mm.add("(min-width:778px)", ()=>{
+      mm.add("(min-width:1024px)", ()=>{
       gsap.fromTo(hero.current, {
         opacity: 0
       },
@@ -187,14 +258,14 @@ function Contact() {
     <div className='bg-gray-200'>
       <Navbar />
 
-      <div className=' h-screen   max-w-screen relative  bg-gradient-to-b from-gray-200 to-gray-500 overflow-hidden ' ref={pinarea}>
+      <div className=' h-screen  max-w-screen relative  bg-gradient-to-b from-gray-200 to-gray-500 overflow-hidden ' ref={pinarea}>
 
         <div className=' relative max-w-screen h-full z-10 hidden md:block  '>
-          <img className=' absolute top scale-75 -bottom-100 -left-130 object-contain rotate-33' ref={orange} src={sun} alt="sun" />
-          <img className=' absolute scale-75  bottom-27 -left-[45%] object-contain rotate-116' ref={blue} src={robo} alt="sun" />
-          <img className=' absolute scale-75 bottom-10 left-170 object-contain rotate-240' ref={brown} src={koji} alt="sun" />
+          <img className=' absolute top scale-100 lg:scale-75 -bottom-[5%] lg:-bottom-[50%] -left-[30%] object-contain rotate-33' ref={orange} src={sun} alt="sun" />
+          <img className=' absolute scale-100 lg:scale-75 md:bottom-[40%] lg:bottom-[20%] -left-[45%]  rotate-116' ref={blue} src={robo} alt="sun" />
+          <img className=' absolute scale-100 lg:scale-75 bottom-[50%] lg:bottom-[15%] left-[45%] object-contain rotate-240' ref={brown} src={koji} alt="sun" />
         </div>
-        <div ref={hero} className=' text-2xl scale-200 font-serifpro font-medium lg:scale-100 lg:text-8xl top-1/2 left-1/2 absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-2 '>
+        <div ref={hero} className=' text-2xl scale-200 font-serifpro font-medium md:scale-100 md:text-7xl lg:scale-130 top-1/2 left-1/2 absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center gap-2 '>
           <p> Connect with </p>
           <p className='italic'>  Ellaura Mist</p>
         </div>
@@ -202,10 +273,10 @@ function Contact() {
         <div ref={boxes} className=' flex flex-col md:flex-row  justify-end w-full md:flex md:justify-center md:items-end h-screen gap-4 md:gap-8 top-1/2 left-1/2 absolute transform -translate-x-1/2 -translate-y-1/2 z-20' >
           <div className='bg-white/10 backdrop-blur-lg shadow rounded-lg  md:w-66 h-32 md:h-52 flex md:flex-col md:justify-around px-2.5 gap-3'>
             <div className=' flex flex-col justify-center md:justify-start'>
-              <FaLocationDot className=' size-10' />
+              <FaLocationDot className=' size-10 ' />
             </div>
             <div className='flex flex-col justify-center gap-2.5 font-karla'>
-              <p className=' text-lg '>Our Address</p>
+              <p className=' text-md md:text-lg '>Our Address</p>
               <p className='text-xl font-semibold'>
                 <p>BUS STAND CHOWK</p>
                 <p>Near Green Hotel, Punjab</p>
@@ -217,7 +288,7 @@ function Contact() {
               <IoMdCall className=' size-10' />
             </div>
             <div className='flex flex-col justify-center gap-2.5 font-karla'>
-              <p className=' text-lg '>Our Phone</p>
+              <p className=' text-md md:text-lg '>Our Phone</p>
               <p className='text-xl font-semibold'>
                 +91-9800660047
               </p>
@@ -228,7 +299,7 @@ function Contact() {
               <IoMdMail className='size-10' />
             </div>
             <div className='flex flex-col justify-center gap-2.5 font-karla'>
-              <p className=' text-lg '>Our Email</p>
+              <p className=' text-md md:text-lg '>Our Email</p>
               <p className='text-xl font-semibold'>
                 info@ellauramist.com
               </p>
